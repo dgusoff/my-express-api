@@ -1,7 +1,10 @@
+
+
 const express = require('express');
 const axios = require('axios');
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
+//const fooService = new FooService();
 
 app.get('/', async (req, res) => {
     try {
@@ -26,6 +29,18 @@ app.get('/time', async (req, res) => {
         res.send(err.message)
     }
 });
+
+app.get('/sayHello', async (req, res) => {
+    try {
+        let data = `hello ${req.query.name}`;//fooService.sayHello(req.query.name)
+        res.send(data)
+    }
+    catch (err) {
+        console.log(err);
+        res.send(err.message)
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
