@@ -1,12 +1,12 @@
 
-
-const express = require('express');
-const axios = require('axios');
+import express from 'express';
+import axios from 'axios';
+import FooService from  './services/fooService';
 const app = express();
 const port = 3000;
-//const fooService = new FooService();
+const fooService = new FooService();
 
-app.get('/', async (req, res) => {
+app.get('/', async (req: any, res: any) => {
     try {
         let data = await callGithub();
         res.send(data)
@@ -17,7 +17,7 @@ app.get('/', async (req, res) => {
     }
 });
 
-app.get('/time', async (req, res) => {
+app.get('/time', async (req: any, res: any) => {
     try {
         let now = new Date();
         res.send({
@@ -30,7 +30,7 @@ app.get('/time', async (req, res) => {
     }
 });
 
-app.get('/sayHello', async (req, res) => {
+app.get('/sayHello', async (req: any, res: any) => {
     try {
         let data = `hello ${req.query.name}`;//fooService.sayHello(req.query.name)
         res.send(data)

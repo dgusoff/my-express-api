@@ -1,10 +1,10 @@
 
-class FooService{
+export default class FooService{
    constructor(){
 
    }
 
-   sayHello(name){
+   sayHello(name: string){
        console.log(`Hello, ${name}`);
    }
 }
