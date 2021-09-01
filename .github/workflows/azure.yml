@@ -43,7 +43,7 @@ jobs:
       uses: actions/upload-artifact@v2.2.4
       with:
         name: artifact
-        path: ./dist
+        path: .
         retention-days: 7
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
