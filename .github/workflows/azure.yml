@@ -50,4 +50,4 @@ jobs:
       with:
         app-name: my-node-api
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C331CABF5B464D908B424650AD7B7D0B }}
-        package: ./dist
+        package: artifact
