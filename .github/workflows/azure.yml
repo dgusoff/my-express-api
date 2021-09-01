@@ -40,10 +40,11 @@ jobs:
       run: |
         # Build and test the project, then
         # deploy to Azure Web App.
-        npm install       
+        npm install    |
+        npm run build   
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
       with:
         app-name: my-node-api
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C331CABF5B464D908B424650AD7B7D0B }}
-        package: .
+        package: ./dist
