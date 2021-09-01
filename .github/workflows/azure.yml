@@ -45,9 +45,17 @@ jobs:
         name: artifact
         path: .
         retention-days: 7
+    - name: Download a Build Artifact
+      id: download
+      uses: actions/download-artifact@v2.0.10
+      with:
+        name: artifact
+        path: deploy
+    - name: 'Echo download path'
+      run: echo ${{steps.download.outputs.download-path}}
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
       with:
         app-name: my-node-api
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C331CABF5B464D908B424650AD7B7D0B }}
-        package: artifact
+        package: deploy
