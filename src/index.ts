@@ -1,9 +1,15 @@
 import express from 'express';
+import dotenv from 'dotenv';
+import * as appInsights from 'applicationinsights'
 import axios from 'axios';
 import FooService from  './services/fooService';
 import JsService  from './services/jsService';
 const app = express();
 const port = 3000;
+
+dotenv.config();
+appInsights.setup().start();
+
 const fooService = new FooService();
 
 app.get('/', async (req: any, res: any) => {
