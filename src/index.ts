@@ -1,6 +1,7 @@
 import express from 'express';
 import axios from 'axios';
 import FooService from  './services/fooService';
+import JsService  from './services/jsService';
 const app = express();
 const port = 3000;
 const fooService = new FooService();
